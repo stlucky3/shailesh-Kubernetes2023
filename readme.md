@@ -12,8 +12,8 @@ For explanation, please visit this article - [Docker and Spring Boot](https://mk
 
 ## How to run this?
 ```bash
-$ git clone https://github.com/mkyong/docker-java
-$ cd docker-spring-boot
+$ git clone https://github.com/stlucky3/shailesh-Prod2023.git
+$ cd shailesh-Prod2023
 $ mvn clean package
 $ java -jar target/spring-boot-web.jar
 
