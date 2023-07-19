@@ -14,6 +14,7 @@ For explanation, please visit this article - [Docker and Spring Boot](https://mk
 ```bash
 $ git clone https://github.com/stlucky3/shailesh-Prod2023.git
 $ cd shailesh-Prod2023
+$ mvn --version
 $ mvn clean package
 $ java -jar target/spring-boot-web.jar
 
