@@ -14,6 +14,14 @@ pipeline {
                 }
             }
         }
-    
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.0.113:9000/
+                    }
+                }
+            }
+        }
     }
 }
