@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         SONAR_URL = 'http://192.168.0.113:9000'
+    }
     stages {
         stage('Checkout') {
             steps {
