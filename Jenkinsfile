@@ -30,7 +30,7 @@ pipeline {
          stage('Deploy to Nexus') {
             steps {
                 script {
-                    sh "mvn deploy -Dmaven.repo.local=.m2/repository -DaltDeploymentRepository=nexus::default::${NEXUS_URL}/repository/maven-releases"
+                    sh "mvn deploy -Dmaven.repo.local=.m2/repository -DaltDeploymentRepository=nexus::default::${NEXUS_URL}/repository/embitel-maven/"
                 }
             }
         }
