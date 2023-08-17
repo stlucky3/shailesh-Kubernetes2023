@@ -7,5 +7,13 @@ pipeline {
                 checkout scm
             }
         }
+         stage('Build and Test') {
+            steps {
+                script {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+    
     }
 }
