@@ -3,7 +3,7 @@ pipeline {
     environment {
         SONAR_URL = 'http://192.168.0.113:9000'
         NEXUS_URL = 'http://192.168.0.113:8081'
-        ECR_REPO = '076984480633.dkr.ecr.us-east-1.amazonaws.com' 
+        ECR_REPO = '151613643344.dkr.ecr.us-east-1.amazonaws.com' 
         Repo_name = 'embitel-ecr'
 	    region = 'us-east-1'
     }
@@ -45,13 +45,11 @@ pipeline {
 
         stage('Push to ECR') {
             steps {
-                script {
-		    withAWS( credentials: 'aws-credentials-id') {
-                    sh "aws ecr get-login-password --region $region | docker login --username AWS --password-stdin $ECR_REPO"
+                withAWS( credentials: 'aws-credentials-id' , region: 'us-east-1') {
+                    sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REPO"
                     sh "docker push $ECR_REPO/$Repo_name:latest"
                 }
 		}	
             }
-        }  
-    }
+            }
 }
