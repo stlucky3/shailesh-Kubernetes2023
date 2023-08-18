@@ -38,7 +38,7 @@ pipeline {
        stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t $ECR_REPO/$Repo_name:latest .'
+                    sh 'docker build -t $ECR_REPO/$REPO_NAME:latest .'
                 }
             }
         }
