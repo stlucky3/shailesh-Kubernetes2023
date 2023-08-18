@@ -29,9 +29,7 @@ pipeline {
         }
          stage('Deploy to Nexus') {
             steps {
-                script {
-                    sh "mvn deploy -Dmaven.repo.local=.m2/repository -DaltDeploymentRepository=nexus::default::${NEXUS_URL}/repository/embitel-maven"
-                }
+                nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/spring-boot-web-1.0.jar', type: 'jar']], credentialsId: 'Nexus-Maven', groupId: 'org.springframework.boot', nexusUrl: '192.168.0.113:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'embitel-maven', version: '1.0'
             }
         }
     }
