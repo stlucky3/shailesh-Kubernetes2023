@@ -1,7 +1,0 @@
-<servers>
-    <server>
-        <id>nexus</id>
-        <username>maven-deploy-user</username>
-        <password>Wp@123098</password>
-    </server>
-</servers>
