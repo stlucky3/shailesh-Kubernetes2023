@@ -5,19 +5,19 @@ pipeline {
         NEXUS_URL = 'http://192.168.0.113:8081'
     }
     stages {
-        stage('Checkout') {
+        stage('Checkout From GitHub Repository') {
             steps {
                 checkout scm
             }
         }
-         stage('Build and Test') {
+         stage('Maven Tool Build and Test Code') {
             steps {
                 script {
                     sh 'mvn clean install'
                 }
             }
         }
-        stage('SonarQube Analysis') {
+        stage('SonarQube Code Analysis') {
             steps {
                 script {
                     withSonarQubeEnv('SonarQube') {
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-         stage('Deploy to Nexus') {
+         stage('Deploy to Nexus Repository') {
             steps {
                 nexusArtifactUploader artifacts: [[artifactId: 'spring-boot-starter-parent', classifier: '', file: 'target/spring-boot-web.jar', type: 'jar']], credentialsId: 'Nexus-Maven', groupId: 'org.springframework.boot', nexusUrl: '192.168.0.113:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'embitel-maven', version: '1.0'
             }
