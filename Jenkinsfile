@@ -6,6 +6,7 @@ pipeline {
         ECR_REPO = '806576649882.dkr.ecr.us-east-1.amazonaws.com' 
         REPO_NAME = 'embitel-ecr'
 	    region = 'us-east-1'
+	EKS_CLUSTER = 'embitel-EKS-cluster1'
     }
     stages {
         stage('Checkout From GitHub Repository') {
@@ -53,5 +54,13 @@ pipeline {
                 }
 		}	
             }
+	    stage('Deploy to EKS Cluster') {
+            steps {
+                script {
+                    sh "aws eks update-kubeconfig --region us-east-1 --name $EKS_CLUSTER"
+                    sh 'kubectl apply -f your-kubernetes-manifest.yaml'
+                }
+            }
+        }
             }
 }
