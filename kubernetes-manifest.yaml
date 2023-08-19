@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  selector:
+    matchLabels:
+      app: products
+      department: sales
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: products
+        department: sales
+    spec:
+      containers:
+      - name: hello
+        image: "$ECR_REPO/$REPO_NAME:latest"
+        env:
+        - name: "PORT"
+          value: "8080"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-lb-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: products
+    department: sales
+  ports:
+  - protocol: TCP
+    port: 60000
+    targetPort: 8080
