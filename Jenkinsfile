@@ -48,7 +48,7 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "aws-credentials-id",
     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ]]) {
-                    sh "aws ecr create-repository --repository-name embitel-ecr --region us-east-1
+                    sh "aws ecr create-repository --repository-name embitel-ecr --region us-east-1"
                 }
 		}	
             }
