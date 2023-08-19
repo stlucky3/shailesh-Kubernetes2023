@@ -56,7 +56,9 @@ pipeline {
             }
 	    stage('Deploy to EKS Cluster') {
             steps {
-                script {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "aws-credentials-id",
+    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY' ]]) {
                     sh "aws eks update-kubeconfig --region us-east-1 --name $EKS_CLUSTER"
                     sh 'kubectl apply -f your-kubernetes-manifest.yaml'
                 }
