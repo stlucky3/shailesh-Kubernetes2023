@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: "$ECR_REPO/$REPO_NAME:latest"
+        image: "806576649882.dkr.ecr.us-east-1.amazonaws.com/embitel-ecr:latest"
         env:
         - name: "PORT"
           value: "8080"
