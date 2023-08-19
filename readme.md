@@ -3,7 +3,7 @@ This source code is an Spring Boot web application
  
 Tested with
 * Docker 19.03
-* Ubuntu 19
+* Ubuntu 20.0X
 * Java 8 or Java 11
 * Spring Boot 2.2.4.RELEASE
 * Maven
