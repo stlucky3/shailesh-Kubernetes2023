@@ -12,8 +12,8 @@ public class StartApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "Hi Embitel IT Team. Welcome to My Website !");
-        model.addAttribute("msg", "We have deployed this application in Docker !");
+        model.addAttribute("title", "Hi Embitel IT Team. Today is 26 Aug 2023. Welcome to My Website !");
+        model.addAttribute("msg", "We have deployed this application in AWS EKS Kubernetes Cluster!");
         return "index";
     }
 
