@@ -6,7 +6,7 @@ pipeline {
         ECR_REPO = '981687212131.dkr.ecr.us-east-1.amazonaws.com' 
         REPO_NAME = 'embitel-ecr'
 	    region = 'us-east-1'
-	EKS_CLUSTER = 'embitel-EKS-cluster1'
+	EKS_CLUSTER = 'embitel-EKS-cluster2'
     }
     stages {
         stage('Checkout From GitHub Repository') {
